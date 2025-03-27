@@ -6,49 +6,32 @@
 
 
     <groupId>com.luckin</groupId>
-    <artifactId>luckin.coffee</artifactId>
+    <artifactId>luckin.web.framework</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>luckin.core</module>
+        <module>luckin.http</module>
+        <module>luckin.router</module>
+        <module>luckin.ioc</module>
+        <module>luckin.examples</module>
+    </modules>
 
     <properties>
         <java.version>1.8</java.version>
-        <guava.version>27.0.1-jre</guava.version>
-        <aviator.version>5.3.0</aviator.version>
-        <netty.version>4.1.109.Final</netty.version>
-        <javax.json.version>1.1.4</javax.json.version>
+        <netty.version>4.1.94.Final</netty.version>
     </properties>
 
-    <dependencies>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.googlecode.aviator</groupId>
-            <artifactId>aviator</artifactId>
-            <version>${aviator.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>${netty.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.json</groupId>
-            <artifactId>javax.json-api</artifactId>
-            <version>${javax.json.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.json</artifactId>
-            <version>${javax.json.version}</version>
-        </dependency>
-
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <!-- Netty -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
